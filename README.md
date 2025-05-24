@@ -56,3 +56,39 @@ curl http://localhost:<port>/grades
 ## Become a Cloud and DevOps Engineer
 
 Learn every tool that matters: https://rayanslim.com
+
+get port
+kubectl get svc -n grade-demo
+
+
+curl http://localhost:31000/grades
+
+
+kubectl get deployment -n grade-demo
+
+open with minikube
+❯ minikube service grade-submission-api -n grade-demo --url
+
+
+open port 31000 for port 3000 inside of Cluster
+kubectl port-forward svc/grade-submission-api -n grade-demo 31000:3000
+
+
+
+```bash
+curl -X POST http://localhost:31000/grades \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Harry", "subject": "Defense Against Dark Arts", "score": 95}'
+
+curl -X POST http://localhost:31000/grades \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Ron", "subject": "Charms", "score": 82}'
+
+curl -X POST http://localhost:31000/grades \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Hermione", "subject": "Potions", "score": 98}'
+  
+  
+  
+curl http://localhost:31000/grades
+```
