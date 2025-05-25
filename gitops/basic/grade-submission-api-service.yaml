@@ -4,11 +4,10 @@ metadata:
   name: grade-submission-api
   namespace: grade-demo
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: grade-submission
   ports:
-    - name: http
-      port: 3000
-      targetPort: 3000
-      protocol: TCP
+  - port: 3000
+    targetPort: 3000
+    nodePort: 31000
